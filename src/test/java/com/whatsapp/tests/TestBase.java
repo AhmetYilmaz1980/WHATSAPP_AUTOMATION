@@ -71,7 +71,7 @@ public class TestBase {
     public void tearDown(ITestResult result) throws IOException {
         if (result.getStatus() == ITestResult.FAILURE){
             //başarısız testin adını alalım
-            extentLogger.fail(result.getName());
+           // extentLogger.fail(result.getName());
             //ekran görüntüsünü alalım
             String screenshotPath = BrowserUtils.getScreenshot(result.getName());
             //screenshot'ı rapora ekleyelim
@@ -80,6 +80,6 @@ public class TestBase {
             extentLogger.fail(result.getThrowable());
         }
 
-        Driver.closeDriver();
+       // Driver.closeDriver();
     }
 }
