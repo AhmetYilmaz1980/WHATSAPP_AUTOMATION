@@ -12,7 +12,7 @@ public class Login extends TestBase {
     public void getGomePage() throws InterruptedException {
         driver.get(ConfigurationReader.get("url"));
         Thread.sleep(20000);
-        WebElement element = driver.findElement(By.xpath("//*[@id=\"pane-side\"]/div[2]/div/div/div[1]"));
+        WebElement element = driver.findElement(By.xpath("//*[@id=\"pane-side\"]/div[2]/div/div/[1]"));
         element.click();
         Thread.sleep(2000);
         WebElement lastMessage= driver.findElement(By.xpath("(//div[@class='copyable-text'])[2]"));
