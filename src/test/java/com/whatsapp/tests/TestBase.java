@@ -80,10 +80,9 @@ public class TestBase {
             extentLogger.fail(result.getThrowable());
         }
 
-<<<<<<< Updated upstream
+
        // Driver.closeDriver();
-=======
       //  Driver.closeDriver();
->>>>>>> Stashed changes
+
     }
 }

@@ -6,8 +6,11 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class Login extends TestBase {
@@ -26,17 +29,26 @@ public class Login extends TestBase {
         Thread.sleep(1000);
         builder.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
         Thread.sleep(1000);
-
         ((JavascriptExecutor) driver).executeScript("window.open('about:blank','_blank');");
         Thread.sleep(2000);
         //builder.keyDown(Keys.CONTROL).sendKeys("t").keyUp(Keys.CONTROL).perform();
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
-        driver.get("https://chatgpt.com/");
+        driver.get("https://huggingface.co/spaces/yuntian-deng/ChatGPT");
         Thread.sleep(3000);
+        driver.switchTo().frame("iFrameResizer0");
 
-        WebElement element2 = driver.findElement(By.xpath("(//*[@class=\"btn relative btn-blue btn-large\"])[1]"));
-        element2.click();
+        WebElement agreeButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("component-23")));
+        agreeButton.click();
+        Thread.sleep(2000);
+        driver.switchTo().alert().accept();
+
+        WebElement textArea = wait.until(ExpectedConditions.elementToBeClickable(By.id("//*[@id=\"component-5\"]/label/textarea")));
+        agreeButton.click();
+        Thread.sleep(1000);
+        builder.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
+
+
 
 
     }}
