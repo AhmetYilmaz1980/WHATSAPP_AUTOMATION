@@ -44,17 +44,21 @@ public class ChatPage extends BasePage {
 
     public void acceptCookiesAndPasteMessage() throws InterruptedException {
         Driver.get().switchTo().frame("iFrameResizer0");
-
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(agreeButton));
         button.click();
         Thread.sleep(2000);
         Driver.get().switchTo().alert().accept();
-
         WebElement area = wait.until(ExpectedConditions.elementToBeClickable(textArea));
         area.click();
         Thread.sleep(1000);
         Actions builder = new Actions(Driver.get());
         builder.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
+        builder.keyDown(Keys.ENTER).perform();
+
+
+
+
+
     }
 }
 
