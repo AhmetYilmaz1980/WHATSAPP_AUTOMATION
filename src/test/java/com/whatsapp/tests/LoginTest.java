@@ -76,6 +76,13 @@ public class LoginTest extends TestBase {
         builder.keyDown(Keys.CONTROL).sendKeys("v").keyUp(Keys.CONTROL).perform();
         builder.keyDown(Keys.ENTER).perform();
 
+
+        // yapilacaklar:
+        // tek kisi üzerinden mesaj trafigi ilerletilecek / son gelen mesajin locati belirlenecek
+        // son gelen mesaji üzerinden for döngüsü olusturulacak
+        // chatgbt sayfasindaki soru cevap ksiimlarinin locate mantigina bakilacak
+        // her iki sayfa icinde for döngüsü olusturulacak
+
     }
 }
 
